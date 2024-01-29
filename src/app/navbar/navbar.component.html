@@ -1,0 +1,34 @@
+<nav [ngClass]="{'isScrolled': isScrolled, 'isntScrolled': !isScrolled}" class="navbar fixed-top navbar-expand-lg navbar-dark p-md-0 ">
+    <div class="container">
+        <img class="navbar-brand" src="assets/idwey_name.png" alt="" style="width:80px; height: auto" />
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav ">
+                <li class="nav-item px-3">
+                    <a routerLink="home" class="nav-link text-white">Home</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a routerLink="maisonDH" class="nav-link text-white">Maison d'Haute</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a routerLink="produits" class="nav-link text-white">Produits</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a routerLink="teamB" class="nav-link text-white">Team Building</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a routerLink="rebois" class="nav-link text-white">Action de Reboisement</a>
+                </li>
+            </ul>
+            <div class="mx-auto"></div>
+
+        </div>
+    </div>
+</nav>
+
+
+<router-outlet></router-outlet>
