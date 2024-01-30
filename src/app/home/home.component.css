@@ -1,0 +1,49 @@
+.info {
+    margin: 5vw;
+    display: flex;
+    justify-content: space-between;
+    border: #CD2B73 1px solid;
+    height: 35vh;
+    padding: 1vw;
+}
+
+.para{
+    margin-left: 3vh;
+}
+
+.logo {
+    height: 10vh;
+    width: auto;
+}
+
+.divs {
+    display: flex;
+    padding: 1vw;
+    margin: 1vw;
+    border-radius: 15px;
+    border: #CD2B73 1px solid;
+    color: black;
+    justify-content: space-around;
+}
+
+.divs:hover {
+    background-color: #CD2B73;
+    color: aliceblue;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform: scale(1.005);
+    transition: all .4s ease-in-out;
+}
+
+.divs h1{
+    font-size: 5vw
+}
+.text3{
+    background-color: rgb(233, 233, 233);
+    display: flex;
+    justify-content: space-between;
+    padding:50px;
+    text-decoration: none;
+
+    color: #CD2B73;
+}
