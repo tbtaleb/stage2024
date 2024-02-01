@@ -9,6 +9,12 @@ import { MaisonDHauteComponent } from './maison-dhaute/maison-dhaute.component';
 import { ProduitsComponent } from './produits/produits.component';
 import { TeamBuildingComponent } from './team-building/team-building.component';
 import { ReboiseComponent } from './reboise/reboise.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AdminSideBarComponent } from './admin-side-bar/admin-side-bar.component';
+import { AdminOffreFormsComponent } from './admin-offre-forms/admin-offre-forms.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AcceuilComponent } from './acceuil/acceuil.component';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +24,18 @@ import { ReboiseComponent } from './reboise/reboise.component';
     MaisonDHauteComponent,
     ProduitsComponent,
     TeamBuildingComponent,
-    ReboiseComponent
+    ReboiseComponent,
+    DashboardComponent,
+    AdminSideBarComponent,
+    AdminOffreFormsComponent,
+    AcceuilComponent,
+    AdminNavbarComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

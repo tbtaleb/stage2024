@@ -6,10 +6,13 @@ import { MaisonDHauteComponent } from './maison-dhaute/maison-dhaute.component';
 import { ProduitsComponent } from './produits/produits.component';
 import { TeamBuildingComponent } from './team-building/team-building.component';
 import { ReboiseComponent } from './reboise/reboise.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AdminOffreFormsComponent } from './admin-offre-forms/admin-offre-forms.component';
+import { AcceuilComponent } from './acceuil/acceuil.component';
 
 const routes: Routes = [
   {
-    path: 'navbar', component: NavbarComponent,
+    path: 'acceuil', component: AcceuilComponent,
     children: [
       { path: 'home', title: 'Acceuil', component: HomeComponent },
       { path: 'maisonDH', title: 'Acceuil', component: MaisonDHauteComponent },
@@ -19,7 +22,13 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
     ]
   },
-  { path: '', redirectTo: 'navbar', pathMatch: 'full' },
+  {
+    path: 'dashboard',title:'Dashboard', component: DashboardComponent,
+    children: [
+      {path: 'OffreForms', component:AdminOffreFormsComponent},
+    ]
+  },
+  { path: '', redirectTo: 'acceuil', pathMatch: 'full' },
 
 ];
 
