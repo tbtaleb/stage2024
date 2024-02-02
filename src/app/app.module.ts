@@ -9,6 +9,11 @@ import { MaisonDHauteComponent } from './maison-dhaute/maison-dhaute.component';
 import { ProduitsComponent } from './produits/produits.component';
 import { TeamBuildingComponent } from './team-building/team-building.component';
 import { ReboiseComponent } from './reboise/reboise.component';
+import { FormComponent } from './devis/componants/form/form.component';
+import { MaisonComponent } from './devis/componants/maison/maison.component';
+import { ProduitDivComponent } from './devis/componants/produit-div/produit-div.component';
+import { TeamBuildingDivComponent } from './devis/componants/team-building-div/team-building-div.component';
+import { ActiviteDivComponent } from './devis/componants/activite-div/activite-div.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +23,15 @@ import { ReboiseComponent } from './reboise/reboise.component';
     MaisonDHauteComponent,
     ProduitsComponent,
     TeamBuildingComponent,
-    ReboiseComponent
+    ReboiseComponent,
+    FormComponent,
+    MaisonComponent,
+    ProduitDivComponent,
+    TeamBuildingDivComponent,
+    ActiviteDivComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

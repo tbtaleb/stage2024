@@ -1,0 +1,24 @@
+<!-- category.component.html -->
+<div class="category-container border p-3 ">
+  <div class="d-flex justify-content-between align-items-center">
+    <p>Maison dhaute</p>
+
+    <div class="checkbox-container">
+      <input
+        type="checkbox"
+        id="myCheckbox"
+        (change)="toggleAdditionalContent()"
+      />
+      <label for="myCheckbox"></label>
+    </div>
+  </div>
+
+  <div *ngIf="isAdditionalContentVisible" class="mt-2">
+    <!-- Additional content goes here -->
+    <select name="" id="">
+      <option value="">test</option>
+      <option value="">test</option>
+      <option value="">test</option>
+    </select>
+  </div>
+</div>
