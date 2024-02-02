@@ -15,11 +15,18 @@ import { AdminOffreFormsComponent } from './admin-offre-forms/admin-offre-forms.
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+<<<<<<< Updated upstream
 import { FormComponent } from './devis/componants/form/form.component';
 import { MaisonComponent } from './devis/componants/maison/maison.component';
 import { ProduitDivComponent } from './devis/componants/produit-div/produit-div.component';
 import { TeamBuildingDivComponent } from './devis/componants/team-building-div/team-building-div.component';
 import { ActiviteDivComponent } from './devis/componants/activite-div/activite-div.component';
+=======
+import { AdminOffreListComponent } from './admin-offre-list/admin-offre-list.component';
+import { LoginComponent } from './login/login.component';
+import { LoginfComponent } from './loginf/loginf.component';
+import { SignupfComponent } from './signupf/signupf.component';
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -34,6 +41,7 @@ import { ActiviteDivComponent } from './devis/componants/activite-div/activite-d
     AdminSideBarComponent,
     AdminOffreFormsComponent,
     AcceuilComponent,
+<<<<<<< Updated upstream
     AdminNavbarComponent
     ReboiseComponent,
     FormComponent,
@@ -41,6 +49,13 @@ import { ActiviteDivComponent } from './devis/componants/activite-div/activite-d
     ProduitDivComponent,
     TeamBuildingDivComponent,
     ActiviteDivComponent
+=======
+    AdminNavbarComponent,
+    AdminOffreListComponent,
+    LoginComponent,
+    LoginfComponent,
+    SignupfComponent
+>>>>>>> Stashed changes
   ],
   imports: [
     FormsModule,

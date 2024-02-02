@@ -9,6 +9,10 @@ import { ReboiseComponent } from './reboise/reboise.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminOffreFormsComponent } from './admin-offre-forms/admin-offre-forms.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
+import { AdminOffreListComponent } from './admin-offre-list/admin-offre-list.component';
+import { LoginComponent } from './login/login.component';
+import { LoginfComponent } from './loginf/loginf.component';
+import { SignupfComponent } from './signupf/signupf.component';
 
 const routes: Routes = [
   {
@@ -23,9 +27,21 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'loginpage',
+    title: 'LoginPage',
+    component: LoginComponent,
+    children: [
+      { path: 'login', title: 'Login', component: LoginfComponent },
+      { path: 'signup', title: 'Sign Up', component: SignupfComponent },
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+    ],
+  },
+  {
     path: 'dashboard',title:'Dashboard', component: DashboardComponent,
     children: [
+      {path: 'OfferList', component:AdminOffreListComponent},
       {path: 'OffreForms', component:AdminOffreFormsComponent},
+      { path: '', redirectTo: 'OfferList', pathMatch: 'full' },
     ]
   },
   { path: '', redirectTo: 'acceuil', pathMatch: 'full' },
