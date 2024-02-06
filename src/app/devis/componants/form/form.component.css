@@ -6,7 +6,8 @@
     border-radius: 5px;
     background-color: white;
     box-shadow: 0 0 10px #ccc;
-    height: 80vh;
+    min-height: 80vh;
+    
 }
 
 .devisForm{

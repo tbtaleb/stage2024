@@ -9,27 +9,29 @@ import { ReboiseComponent } from './reboise/reboise.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminOffreFormsComponent } from './admin-offre-forms/admin-offre-forms.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
+import { FormComponent } from './devis/componants/form/form.component';
 
 const routes: Routes = [
   {
-    path: 'acceuil', component: AcceuilComponent,
+    path: 'acceuil',
+    component: AcceuilComponent,
     children: [
       { path: 'home', title: 'Acceuil', component: HomeComponent },
       { path: 'maisonDH', title: 'Acceuil', component: MaisonDHauteComponent },
       { path: 'produits', title: 'Acceuil', component: ProduitsComponent },
       { path: 'teamB', title: 'Acceuil', component: TeamBuildingComponent },
       { path: 'rebois', title: 'Acceuil', component: ReboiseComponent },
+      { path: 'devis', title: 'Acceuil', component: FormComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-    ]
+    ],
   },
   {
-    path: 'dashboard',title:'Dashboard', component: DashboardComponent,
-    children: [
-      {path: 'OffreForms', component:AdminOffreFormsComponent},
-    ]
+    path: 'dashboard',
+    title: 'Dashboard',
+    component: DashboardComponent,
+    children: [{ path: 'OffreForms', component: AdminOffreFormsComponent }],
   },
   { path: '', redirectTo: 'acceuil', pathMatch: 'full' },
-
 ];
 
 @NgModule({

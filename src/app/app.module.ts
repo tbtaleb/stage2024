@@ -34,7 +34,7 @@ import { ActiviteDivComponent } from './devis/componants/activite-div/activite-d
     AdminSideBarComponent,
     AdminOffreFormsComponent,
     AcceuilComponent,
-    AdminNavbarComponent
+    AdminNavbarComponent,
     ReboiseComponent,
     FormComponent,
     MaisonComponent,
@@ -48,7 +48,7 @@ import { ActiviteDivComponent } from './devis/componants/activite-div/activite-d
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  
   providers: [],
   bootstrap: [AppComponent],
 })
