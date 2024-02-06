@@ -1,1 +1,16 @@
-<p>maison-dhaute works!</p>
+<h1>Lea Maison d'haute</h1>
+<div>
+    <div class="card" style="width: 18rem;" *ngFor="let item of lesMaisonHaute">
+        <img [src]="item.img" class="card-img-top" alt="">
+        <div class="card-body">
+            <h5 class="card-title">{{item.name}}</h5>
+            <p class="card-text">{{item.desc}} </p>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Nombre de personne: {{item.nbPerso}}$</p>
+        </div>
+        <div class="card-body">
+            <button (click)="save(item.id)">add to favourite</button>
+        </div>
+    </div>
+</div>

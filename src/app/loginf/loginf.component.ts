@@ -19,12 +19,10 @@ export class LoginfComponent {
     });
   }
 
-  // onSubmit(): void {
-  //   if (this.loginForm.valid) {
-  //     const username = this.loginForm.value.username;
-  //     const password = this.loginForm.value.password;
-
-  //     this.authService.login(username, password);
-  //   }
-  // }
+  onSubmit(): void {
+    if (this.loginForm.valid) {
+      const username = this.loginForm.value.username;
+      const password = this.loginForm.value.password;
+    }
+  }
 }

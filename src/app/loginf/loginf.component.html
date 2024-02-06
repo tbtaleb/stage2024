@@ -1,7 +1,7 @@
 <div class="container">
     <div class="log" id="logindiv">
       <p class="login">LOGIN</p>
-      <form [formGroup]="loginForm">
+      <form [formGroup]="loginForm" (submit)="onSubmit()">
         <input type="text" formControlName="username" placeholder="Username" /><br />
         <div class="text-danger fw-bold" *ngIf="
             loginForm.controls['username'].invalid &&
