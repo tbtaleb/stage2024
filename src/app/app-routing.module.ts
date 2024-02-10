@@ -52,10 +52,6 @@ const routes: Routes = [
       { path: 'tbForms/:id', component: AdminTeamBuildingFormsComponent },
       { path: '', redirectTo: 'OfferList', pathMatch: 'full' },
     ]
-    path: 'dashboard',
-    title: 'Dashboard',
-    component: DashboardComponent,
-    children: [{ path: 'OffreForms', component: AdminOffreFormsComponent }],
   },
   { path: '', redirectTo: 'acceuil', pathMatch: 'full' },
 ];
