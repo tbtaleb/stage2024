@@ -52,17 +52,8 @@ const routes: Routes = [
       { path: 'mhForms/:id', component: AdminMaisonHauteFormsComponent },
       { path: 'pForms/:id', component: AdminProduitFormsComponent },
       { path: 'tbForms/:id', component: AdminTeamBuildingFormsComponent },
-      { path: '', redirectTo: 'OfferList', pathMatch: 'full' },
-    ]
-    path: 'dashboard',
-    title: 'Dashboard',
-    component: DashboardComponent,
-    children: [
-      { path: 'OfferList', component: AdminOffreListComponent },
-      { path: 'OffreForms', component: AdminOffreFormsComponent },
-      { path: 'listDevis', component: AdminListDevisComponent },
+       { path: 'listDevis', component: AdminListDevisComponent },
       { path: 'listDevis/:id', component: AdminSelectedDevisComponent },
-
       { path: '', redirectTo: 'OfferList', pathMatch: 'full' },
     ],
   },
