@@ -16,6 +16,7 @@ export class MaisonDHauteComponent implements OnInit {
   lesMaisonHaute: MaisonHaute[] = [];
   fav: Favs;
   loggedinClient !: Client
+  saved: boolean = true;
 
   constructor(
     private mhService: MaisonHauteService,
@@ -45,14 +46,23 @@ export class MaisonDHauteComponent implements OnInit {
 
   save(idOf: number): void {
     const fav: Favs = {
-      id:0,
+      id: 0,
       id_client: this.loggedinClient.id,
       id_offre: idOf,
       type: "MaisondHaute"
     }
-    this.favService.addFav(fav).subscribe((data) => {
-      console.log(fav);
-    })
+    this.saved = !this.saved;
+    this.favService.addFav(fav).subscribe()
   }
 
+  unsave(idOf: number): void {
+    this.favService.getFavsByIdOffreAndIdClient(idOf, this.loggedinClient.id).subscribe(
+      (fav) => {
+        console.log(fav);
+        if (fav) {
+          this.favService.deleteFav(fav.id).subscribe();
+        }
+      }
+    )
+  }
 }

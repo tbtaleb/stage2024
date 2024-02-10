@@ -26,4 +26,12 @@ export class FavsService {
   updateFavs(Fav: Favs): Observable<Favs> {
     return this.http.put<Favs>(url + '/' + Fav.id, Fav);
   }
+
+  getFavsByIdOffreAndIdClient(idOffre: number, idClient: number): Observable<Favs> {
+    return this.http.get<Favs>(`${url}?id_offre=${idOffre}&id_client=${idClient}`);
+  }
+
+  deleteFav(id: number): Observable<Favs> {
+    return this.http.delete<Favs>(url + '/' + id);
+  }
 }

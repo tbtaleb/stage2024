@@ -21,6 +21,9 @@ import { LoginComponent } from './login/login.component';
 import { LoginfComponent } from './loginf/loginf.component';
 import { SignupfComponent } from './signupf/signupf.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AdminMaisonHauteFormsComponent } from './admin-maison-haute-forms/admin-maison-haute-forms.component';
+import { AdminProduitFormsComponent } from './admin-produit-forms/admin-produit-forms.component';
+import { AdminTeamBuildingFormsComponent } from './admin-team-building-forms/admin-team-building-forms.component';
 import { AdminListDevisComponent } from './devis/componants/admin-list-devis/admin-list-devis.component';
 import { AdminSelectedDevisComponent } from './devis/componants/admin-selected-devis/admin-selected-devis.component';
 
@@ -45,6 +48,9 @@ import { AdminSelectedDevisComponent } from './devis/componants/admin-selected-d
     LoginComponent,
     LoginfComponent,
     SignupfComponent,
+    AdminMaisonHauteFormsComponent,
+    AdminProduitFormsComponent,
+    AdminTeamBuildingFormsComponent,
     AdminListDevisComponent,
     AdminSelectedDevisComponent,
   ],

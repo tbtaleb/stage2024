@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClientService } from '../AA_services/client.service';
 import { Client } from '../AA_classes/client';
+import { AuthService } from '../AA_services/auth.service';
 
 @Component({
   selector: 'app-signupf',
@@ -17,7 +18,7 @@ export class SignupfComponent {
   constructor(
     private fb: FormBuilder,
     private clientService: ClientService,
-    // private authService: AuthService,
+    private authService: AuthService,
     private router: Router
   ) {
     this.signupForm = this.fb.group({
@@ -43,6 +44,7 @@ export class SignupfComponent {
 
       this.clientService.addClient(newClient).subscribe(() => {
         console.log(newClient);
+        this.authService.setAuthenticated(true);
         this.router.navigate(['/acceuil/home']);
       });
     }

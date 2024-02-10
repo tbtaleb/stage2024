@@ -1,20 +1,59 @@
 <div class="container">
-    Choisissez l'offre à afficher
-    <select class="form-select" aria-label="Default select example"  (change)="onChange($event)">
-        <option selected value="0">Maison d'Haute</option>
-        <option value="1">Produits</option>
-        <option value="2">Team Building</option>
-    </select>
+  Choisissez l'offre à afficher
+  <select class="form-select" aria-label="Default select example" (change)="onChange($event)">
+    <option selected value="0">Maison d'Haute</option>
+    <option value="1">Produits</option>
+    <option value="2">Team Building</option>
+  </select>
 
-    <div class="card" style="width: 18rem;">
-        <img src="" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div>
+  <div *ngIf="selectedOption=='0'" class="divC">
+    <div class="card" style="width: 18rem;" *ngFor="let item of maisonHautes">
+      <img [src]="item.img" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5 class="card-title">{{item.name}}</h5>
+        <p class="card-text">{{item.desc}} </p>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Nombre de personne: {{item.nbPerso}}</p>
+      </div>
+      <div class="card-body">
+        <button class="btn btn-info" [routerLink]="['/dashboard/mhForms', item.id]">Modifer Info</button>
+        <button class="btn btn-danger" (click)="delete(item.id)">Supprimer</button>
+      </div>
     </div>
+  </div>
+
+  <div *ngIf="selectedOption=='1'" class="divC">
+    <div class="card" style="width: 18rem;" *ngFor="let item of produits">
+      <img [src]="item.img" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5 class="card-title">{{item.name}}</h5>
+        <p class="card-text">{{item.desc}} </p>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Nombre de personne: {{item.nb}}</p>
+      </div>
+      <div class="card-body">
+        <button class="btn btn-info" [routerLink]="['/dashboard/pForms', item.id]">Modifer Info</button>
+        <button class="btn btn-danger" (click)="delete(item.id)">Supprimer</button>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="selectedOption=='2'" class="divC">
+    <div class="card" style="width: 18rem;" *ngFor="let item of teamBuilding">
+      <img [src]="item.img" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5 class="card-title">{{item.name}}</h5>
+        <p class="card-text">{{item.desc}} </p>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Category: {{item.category}}</p>
+      </div>
+      <div class="card-body">
+        <button class="btn btn-info" [routerLink]="['/dashboard/tbForms', item.id]">Modifer Info</button>
+        <button class="btn btn-danger" (click)="delete(item.id)">Supprimer</button>
+      </div>
+    </div>
+  </div>
 </div>

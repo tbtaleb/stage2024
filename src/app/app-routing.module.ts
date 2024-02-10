@@ -14,6 +14,9 @@ import { LoginComponent } from './login/login.component';
 import { LoginfComponent } from './loginf/loginf.component';
 import { SignupfComponent } from './signupf/signupf.component';
 import { FormComponent } from './devis/componants/form/form.component';
+import { AdminMaisonHauteFormsComponent } from './admin-maison-haute-forms/admin-maison-haute-forms.component';
+import { AdminProduitFormsComponent } from './admin-produit-forms/admin-produit-forms.component';
+import { AdminTeamBuildingFormsComponent } from './admin-team-building-forms/admin-team-building-forms.component';
 import { AdminListDevisComponent } from './devis/componants/admin-list-devis/admin-list-devis.component';
 import { AdminSelectedDevisComponent } from './devis/componants/admin-selected-devis/admin-selected-devis.component';
 
@@ -42,6 +45,15 @@ const routes: Routes = [
     ],
   },
   {
+    path: 'dashboard', title: 'Dashboard', component: DashboardComponent,
+    children: [
+      { path: 'OfferList', component: AdminOffreListComponent },
+      { path: 'OffreForms', component: AdminOffreFormsComponent },
+      { path: 'mhForms/:id', component: AdminMaisonHauteFormsComponent },
+      { path: 'pForms/:id', component: AdminProduitFormsComponent },
+      { path: 'tbForms/:id', component: AdminTeamBuildingFormsComponent },
+      { path: '', redirectTo: 'OfferList', pathMatch: 'full' },
+    ]
     path: 'dashboard',
     title: 'Dashboard',
     component: DashboardComponent,
