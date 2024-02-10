@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../AA_services/auth.service';
 
 @Component({
   selector: 'app-loginf',
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginfComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder,) {
+  constructor(private fb: FormBuilder,private authService:AuthService) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.minLength(3), Validators.required]],
       password: [
@@ -23,6 +24,8 @@ export class LoginfComponent {
     if (this.loginForm.valid) {
       const username = this.loginForm.value.username;
       const password = this.loginForm.value.password;
+      
+      this.authService.login(username, password);
     }
   }
 }

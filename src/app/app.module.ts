@@ -25,6 +25,9 @@ import { LoginComponent } from './login/login.component';
 import { LoginfComponent } from './loginf/loginf.component';
 import { SignupfComponent } from './signupf/signupf.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AdminMaisonHauteFormsComponent } from './admin-maison-haute-forms/admin-maison-haute-forms.component';
+import { AdminProduitFormsComponent } from './admin-produit-forms/admin-produit-forms.component';
+import { AdminTeamBuildingFormsComponent } from './admin-team-building-forms/admin-team-building-forms.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     LoginComponent,
     LoginfComponent,
     SignupfComponent,
+    AdminMaisonHauteFormsComponent,
+    AdminProduitFormsComponent,
+    AdminTeamBuildingFormsComponent,
   ],
   imports: [
     HttpClientModule,

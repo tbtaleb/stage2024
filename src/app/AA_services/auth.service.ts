@@ -7,6 +7,8 @@ import { ClientService } from './client.service';
 })
 export class AuthService {
   private readonly USER_ID_KEY = 'user_id';
+  private authenticated = false;
+
   constructor(private router: Router, private clientService: ClientService) { }
 
   login(username: string, password: string): void {
@@ -17,7 +19,7 @@ export class AuthService {
             this.USER_ID_KEY,
             authenticatedUser.id.toString()
           );
-          this.router.navigate(['/home']);
+          this.router.navigate(['/acceuil/home']);
         } else {
           alert('User not found or incorrect password');
         }
@@ -30,6 +32,14 @@ export class AuthService {
     this.router.navigate(['/loginpage']);
   }
 
+  
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem(this.USER_ID_KEY);
+  }
+
+  setAuthenticated(value: boolean): void {
+    this.authenticated = value;
+  }
   getCurrentUserId(): string | null {
     const storedUserId = localStorage.getItem(this.USER_ID_KEY);
     if (storedUserId) {

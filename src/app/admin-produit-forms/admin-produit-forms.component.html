@@ -1,0 +1,86 @@
+<div class="container">
+    <form [formGroup]="offreForm" (submit)="onSubmit()">
+        <div class="d-flex justify-content-evenly">
+            <div style="width: 40%">
+                <div class="form-group">
+                    <label for="name">Product Name:</label>
+                    <input type="text" id="nom" formControlName="nom" class="form-control" />
+                    <div *ngIf="
+                  offreForm.controls['nom'].invalid &&
+                  (offreForm.controls['nom'].dirty ||
+                    offreForm.controls['nom'].touched) 
+                ">
+                        <div *ngIf="offreForm.controls['nom'].errors?.['required']" class="alert alert-danger p-2">
+                            Product name is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name">Nombre de pack:</label>
+                    <input type="number" id="nmbre" formControlName="nmbre" class="form-control" />
+                    <div *ngIf="
+                  offreForm.controls['nmbre'].invalid &&
+                  (offreForm.controls['nmbre'].dirty ||
+                    offreForm.controls['nmbre'].touched) 
+                ">
+                        <div *ngIf="offreForm.controls['nmbre'].errors?.['required']" class="alert alert-danger p-2">
+                            number of people is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" formControlName="description" class="form-control"></textarea>
+                    <div *ngIf="
+                  offreForm.controls['description'].invalid &&
+                  (offreForm.controls['description'].dirty ||
+                    offreForm.controls['description'].touched) 
+                ">
+                        <div *ngIf="offreForm.controls['description'].errors?.['required']"
+                            class="alert alert-danger p-2">
+                            Offre description is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="photo">URL of photo</label>
+                    <input type="text" id="img" formControlName="img" class="form-control" />
+                    <div *ngIf="
+                  offreForm.controls['img'].invalid &&
+                  (offreForm.controls['img'].dirty ||
+                    offreForm.controls['img'].touched) 
+                ">
+                        <div *ngIf="offreForm.controls['img'].errors?.['required']" class="alert alert-danger p-2">
+                            Offre img is required.
+                        </div>
+                        <div *ngIf="offreForm.controls['img'].errors?.['pattern']" class="alert alert-warning p-2">
+                            Offre img is invalid.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 40%">
+                <div class="form-group">
+                    <label for="description">id</label>
+                    <input type="number" id="id" formControlName="id" class="form-control" />
+                    <div *ngIf="
+                  offreForm.controls['id'].invalid &&
+                  (offreForm.controls['id'].dirty ||
+                    offreForm.controls['id'].touched) 
+                ">
+                        <div *ngIf="offreForm.controls['id'].errors?.['required']" class="alert alert-danger p-2">
+                            id is required.
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="offreForm.invalid">
+                    Submit
+                </button>
+                <button routerLink="/dashboard/OfferList" class="btn btn-danger">
+                    Go back
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

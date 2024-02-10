@@ -9,8 +9,9 @@
         <div class="card-body">
             <p class="card-text">Nombre de personne: {{item.nbPerso}}$</p>
         </div>
-        <div class="card-body">
-            <button (click)="save(item.id)">add to favourite</button>
+        <div class="card-body" >
+            <button (click)="save(item.id)" *ngIf="saved">add to favourite</button>
+            <button (click)="unsave(item.id)" *ngIf="!saved">remove from favourite</button>
         </div>
     </div>
 </div>
