@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { LoginfComponent } from './loginf/loginf.component';
 import { SignupfComponent } from './signupf/signupf.component';
 import { FormComponent } from './devis/componants/form/form.component';
+import { AdminListDevisComponent } from './devis/componants/admin-list-devis/admin-list-devis.component';
+import { AdminSelectedDevisComponent } from './devis/componants/admin-selected-devis/admin-selected-devis.component';
 
 const routes: Routes = [
   {
@@ -40,22 +42,23 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'dashboard',title:'Dashboard', component: DashboardComponent,
-    children: [
-      {path: 'OfferList', component:AdminOffreListComponent},
-      {path: 'OffreForms', component:AdminOffreFormsComponent},
-      { path: '', redirectTo: 'OfferList', pathMatch: 'full' },
-    ]
     path: 'dashboard',
     title: 'Dashboard',
     component: DashboardComponent,
-    children: [{ path: 'OffreForms', component: AdminOffreFormsComponent }],
+    children: [
+      { path: 'OfferList', component: AdminOffreListComponent },
+      { path: 'OffreForms', component: AdminOffreFormsComponent },
+      { path: 'listDevis', component: AdminListDevisComponent },
+      { path: 'listDevis/:id', component: AdminSelectedDevisComponent },
+
+      { path: '', redirectTo: 'OfferList', pathMatch: 'full' },
+    ],
   },
   { path: '', redirectTo: 'acceuil', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

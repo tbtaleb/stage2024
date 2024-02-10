@@ -1,45 +1,308 @@
 <div class="container mt-5">
-  
-  <form>
-    <div class="mainForm rounded border border-primary d-flex justify-content-around">
-          
+  <h1>Demende devis</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div
+      class="mainForm rounded border border-primary d-flex justify-content-around"
+    >
       <div class="devisForm">
-        <app-maison></app-maison>
-        
+        <div class="row justify-content-around">
+          <div class="category-container mt-2 p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <strong>Team Building</strong>
+
+              <div class="checkbox-container mt-3">
+                <input
+                  type="checkbox"
+                  id="myCheckbox"
+                  (change)="toggleAdditionalContent()"
+                />
+                <label for="myCheckbox"></label>
+              </div>
+            </div>
+
+            <div *ngIf="isAdditionalContentVisible" class="mt-2">
+              <!-- Additional content goes here -->
+              <div class="p-2 bg-light border rounded">
+                <strong>Team Building</strong>
+                <div formGroupName="chosenTeamB">
+                  <div>
+                    <div>
+                      <label class="form-label">Choisir la categorie </label>
+                      <select class="form-select" formControlName="categorie">
+                        <option *ngFor="let choice of choices" [value]="choice">
+                          {{ choice }}
+                        </option>
+                      </select>
+                    </div>
+                    <div>
+                      <label class="form-label">activities</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        formControlName="activite"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="category-container mt-2 p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <strong>Activite rebois</strong>
+
+              <div class="checkbox-container mt-3">
+                <input
+                  type="checkbox"
+                  id="myCheckbox2"
+                  (change)="toggleAdditionalContent2()"
+                />
+                <label for="myCheckbox2"></label>
+              </div>
+            </div>
+
+            <div *ngIf="isAdditionalContentVisible2" class="mt-2">
+              <!-- Additional content goes here -->
+              <div class="p-2 bg-light border rounded">
+                <strong>Rebois</strong>
+                <div formGroupName="chosenActivityRebois">
+                  <div>
+                    <label class="form-label" for="nbreTree">nbreTree</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="nbreTree"
+                      formControlName="nbreTree"
+                    />
+                  </div>
+                  <div>
+                    <label class="form-label" for="price">price</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="price"
+                      formControlName="price"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-around mt-3">
+          <!-- category.component.html -->
+          <div class="category-container mt-3 p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <strong>Houses</strong>
+
+              <div class="checkbox-container mt-3">
+                <input
+                  type="checkbox"
+                  id="myCheckbox3"
+                  (change)="toggleAdditionalContent3()"
+                />
+                <label for="myCheckbox3"></label>
+              </div>
+            </div>
+
+            <div *ngIf="isAdditionalContentVisible3" class="mt-2">
+              <!-- Additional content goes here -->
+              <div class="p-2 mt-3 bg-light border rounded">
+                <strong>Houses</strong>
+                <div formArrayName="chosenHouses">
+                  <div *ngFor="let item of Houses.controls; index as i">
+                    <div class="row align-items-end" [formGroupName]="i">
+                      <div class="col-6">
+                        <label class="form-label" for="place">place</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          name="place"
+                          formControlName="place"
+                        />
+                      </div>
+                      <div class="col-6">
+                        <label class="form-label" for="date">date</label>
+                        <input
+                          class="form-control"
+                          type="date"
+                          name="date"
+                          formControlName="date"
+                        />
+                      </div>
+                      <div class="col-6">
+                        <label class="form-label" for="duree">duree</label>
+                        <input
+                          class="form-control"
+                          type="number"
+                          name="duree"
+                          formControlName="duree"
+                        />
+                      </div>
+                      <div class="col-6">
+                        <input
+                          type="button"
+                          class="btn btn-warning"
+                          (click)="onDeleteHouses(i)"
+                          value="Supprimer"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <input
+                    type="button"
+                    class="btn btn-dark mt-2"
+                    (click)="onAddHouses()"
+                    value="Ajouter Houses"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="category-container mt-3 p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <strong>Products</strong>
+
+              <div class="checkbox-container mt-3">
+                <input
+                  type="checkbox"
+                  id="myCheckbox4"
+                  (change)="toggleAdditionalContent4()"
+                />
+                <label for="myCheckbox4"></label>
+              </div>
+            </div>
+
+            <div *ngIf="isAdditionalContentVisible4" class="mt-2">
+              <!-- Additional content goes here -->
+              <div class="p-2 mt-3 bg-light border rounded">
+                <strong>Products</strong>
+                <div formArrayName="chosenProducts">
+                  <div *ngFor="let item of Products.controls; index as i">
+                    <div class="row align-items-end" [formGroupName]="i">
+                      <div class="col-6">
+                        <label class="form-label" for="name">name</label>
+                        <select
+                          class="form-select"
+                          aria-label="Default select example"
+                          formControlName="name"
+                        >
+                          <option
+                            *ngFor="let product of products"
+                            [value]="product.name"
+                          >
+                            {{ product.name }}
+                          </option>
+                        </select>
+                      </div>
+                      <div class="col-6">
+                        <label class="form-label" for="duree">quantite</label>
+                        <input
+                          class="form-control"
+                          type="number"
+                          name="quantite"
+                          formControlName="quantite"
+                        />
+                      </div>
+                      <div class="col-2 mt-4">
+                        <input
+                          type="button"
+                          class="btn btn-warning"
+                          (click)="onDeleteProducts(i)"
+                          value="Supprimer"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <input
+                    type="button"
+                    class="btn btn-dark mt-3"
+                    (click)="onAddProduct()"
+                    value="Ajouter Products"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="userForm">
-        
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label"
-              >Nom</label
-            >
-            <input
-              type="email"
-              class="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-            />
-            
+        <div formGroupName="societe">
+          <div class="d-flex flex-column rounded">
+            <div class="mt-2">
+              <label class="form-label fw-bold">Nom de la societe </label>
+              <input
+                class="form-control rounded"
+                type="text"
+                formControlName="name"
+              />
+              <div
+                *ngIf="
+                  form.get('societe.name').invalid &&
+                  (form.get('societe.name').dirty ||
+                    form.get('societe.name').touched)
+                "
+                class="alert-warning p-2"
+              >
+                Name is required.
+              </div>
+            </div>
+            <div class="mt-2">
+              <label class="form-label fw-bold">Email</label>
+              <input
+                class="form-control rounded"
+                type="email"
+                formControlName="email"
+              />
+              <div
+                *ngIf="
+                  form.get('societe.email').invalid &&
+                  (form.get('societe.email').dirty ||
+                    form.get('societe.email').touched)
+                "
+                class="alert-warning p-2"
+              >
+                Please enter a valid email address.
+              </div>
+            </div>
+            <div class="mt-2">
+              <label class="form-label fw-bold">Phone</label>
+              <input
+                class="form-control rounded"
+                type="text"
+                formControlName="phone"
+              />
+              <div
+                *ngIf="
+                  form.get('societe.phone').invalid &&
+                  (form.get('societe.phone').dirty ||
+                    form.get('societe.phone').touched)
+                "
+                class="alert-warning p-2"
+              >
+                Phone number must be at least 8 characters.
+              </div>
+            </div>
           </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label"
-              >Email address</label
-            >
-            <input
-              type="password"
-              class="form-control"
-              id="exampleInputPassword1"
-            />
-          </div>
-          <div class="mb-3 form-check">
-           
-            
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-outline-primary mt-2">
+            Envoyer
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary mt-2 mx-1"
+            (click)="onVider()"
+          >
+            vider
+          </button>
+        </div>
       </div>
-      
     </div>
-    
   </form>
 </div>

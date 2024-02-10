@@ -1,0 +1,62 @@
+<div class="page-wrapper">
+  <div class="content">
+    <div class="row">
+      <div class="col-12">
+        <div class="card member-panel">
+          <div class="card-header bg-white">
+            <h4 class="card-title mb-0">Liste Devis</h4>
+          </div>
+          <div class="card-body">
+            <ul class="contact-list">
+              <li *ngFor="let devis of Devis">
+                <div class="contact-cont">
+                  <div class="contact-info d-flex justify-content-between">
+                    <div class="col-3">
+                      <span class="contact-name text-ellipsis">
+                        <i class="fa-solid fa-book"></i>
+                        La societe: {{ devis.societe.name }}</span
+                      >
+                      <span class="contact-date">{{
+                        devis.societe.email
+                      }}</span>
+                    </div>
+                    <div class="col-3">
+                      <span class="contact-name text-ellipsis"
+                        >Nombre des Produit</span
+                      >
+                      <span class="contact-date">{{
+                        devis.chosenProducts.length
+                      }}</span>
+                    </div>
+                    <div class="col-3">
+                      <span class="contact-name text-ellipsis"
+                        >Nombre des maison d'hote</span
+                      >
+                      <span class="contact-date">{{
+                        devis.chosenHouses.length
+                      }}</span>
+                    </div>
+                    <div>
+                      <button
+                        class="btn btn-primary btn-primary-two m-1"
+                        (click)="onClick(devis.id)"
+                      >
+                        Details
+                      </button>
+                      <button
+                        class="btn btn-danger btn-primary-one"
+                        (click)="deleteDevis(devis.id)"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

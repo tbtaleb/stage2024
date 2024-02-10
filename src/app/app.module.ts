@@ -16,15 +16,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { FormComponent } from './devis/componants/form/form.component';
-import { MaisonComponent } from './devis/componants/maison/maison.component';
-import { ProduitDivComponent } from './devis/componants/produit-div/produit-div.component';
-import { TeamBuildingDivComponent } from './devis/componants/team-building-div/team-building-div.component';
-import { ActiviteDivComponent } from './devis/componants/activite-div/activite-div.component';
 import { AdminOffreListComponent } from './admin-offre-list/admin-offre-list.component';
 import { LoginComponent } from './login/login.component';
 import { LoginfComponent } from './loginf/loginf.component';
 import { SignupfComponent } from './signupf/signupf.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AdminListDevisComponent } from './devis/componants/admin-list-devis/admin-list-devis.component';
+import { AdminSelectedDevisComponent } from './devis/componants/admin-selected-devis/admin-selected-devis.component';
 
 @NgModule({
   declarations: [
@@ -42,15 +40,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AdminNavbarComponent,
     ReboiseComponent,
     FormComponent,
-    MaisonComponent,
-    ProduitDivComponent,
-    TeamBuildingDivComponent,
-    ActiviteDivComponent,
     AdminNavbarComponent,
     AdminOffreListComponent,
     LoginComponent,
     LoginfComponent,
     SignupfComponent,
+    AdminListDevisComponent,
+    AdminSelectedDevisComponent,
   ],
   imports: [
     HttpClientModule,

@@ -1,0 +1,100 @@
+<div class="page-wrapper mt-0 pt-0">
+  <div class="container mt-0 pt-0">
+    <div class="p-2 bg-light border rounded">
+      <h2>
+        Devis n° <span class="badge badge-info">{{ devis.id }}</span>
+      </h2>
+
+      <div class="p-2 mt-3 bg-light border border-dark rounded">
+        <h3>Informations sur la société</h3>
+        <div class="row">
+          <div class="col-6">
+            <p><strong>Nom de la société:</strong> {{ devis.societe.name }}</p>
+            <p><strong>Email:</strong> {{ devis.societe.email }}</p>
+          </div>
+          <div class="col-6">
+            <p><strong>Phone:</strong> {{ devis.societe.phone }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="container row mx-0">
+        <div class="p-2 mt-3 bg-light border border-dark rounded col-6">
+          <h3>Les produits ({{ devis.chosenProducts.length }})</h3>
+          <div class="row">
+            <div class="col-12">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let products of devis.chosenProducts">
+                    <td>{{ products.id_products }}</td>
+                    <td>{{ products.name }}</td>
+                    <td>{{ products.quantite }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-2 mt-3 bg-light border border-dark rounded col-6">
+          <h3>Les Maison ({{ devis.chosenHouses.length }})</h3>
+          <div class="row">
+            <div class="col-12">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>place</th>
+                    <th>date</th>
+                    <th>Duree (jours)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let houses of devis.chosenHouses">
+                    <td>{{ houses.id_houses }}</td>
+                    <td>{{ houses.place }}</td>
+                    <td>{{ houses.date }}</td>
+                    <td>{{ houses.duree }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-2 mt-3 bg-light border border-dark rounded col-6">
+          <h3>Informations sur TeamBuilding</h3>
+          <div class="row">
+            <div class="col-6">
+              <p>
+                <strong>Categorie:</strong> {{ devis.chosenTeamB.categorie }}
+              </p>
+              <p><strong>Activite:</strong> {{ devis.chosenTeamB.activite }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-2 mt-3 bg-light border border-dark rounded col-6">
+          <h3>Informations sur Activite de Reboisement</h3>
+          <div class="row">
+            <div class="col-6">
+              <p>
+                <strong>Nombre d'arbres:</strong>
+                {{ devis.chosenActivityRebois.nbreTree }}
+              </p>
+              <p>
+                <strong>Prix:</strong> {{ devis.chosenActivityRebois.price }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
