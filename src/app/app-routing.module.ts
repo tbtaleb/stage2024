@@ -13,21 +13,24 @@ import { AdminOffreListComponent } from './admin-offre-list/admin-offre-list.com
 import { LoginComponent } from './login/login.component';
 import { LoginfComponent } from './loginf/loginf.component';
 import { SignupfComponent } from './signupf/signupf.component';
+import { FormComponent } from './devis/componants/form/form.component';
 import { AdminMaisonHauteFormsComponent } from './admin-maison-haute-forms/admin-maison-haute-forms.component';
 import { AdminProduitFormsComponent } from './admin-produit-forms/admin-produit-forms.component';
 import { AdminTeamBuildingFormsComponent } from './admin-team-building-forms/admin-team-building-forms.component';
 
 const routes: Routes = [
   {
-    path: 'acceuil', component: AcceuilComponent,
+    path: 'acceuil',
+    component: AcceuilComponent,
     children: [
       { path: 'home', title: 'Acceuil', component: HomeComponent },
       { path: 'maisonDH', title: 'Acceuil', component: MaisonDHauteComponent },
       { path: 'produits', title: 'Acceuil', component: ProduitsComponent },
       { path: 'teamB', title: 'Acceuil', component: TeamBuildingComponent },
       { path: 'rebois', title: 'Acceuil', component: ReboiseComponent },
+      { path: 'devis', title: 'Acceuil', component: FormComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-    ]
+    ],
   },
   {
     path: 'loginpage',
@@ -49,9 +52,12 @@ const routes: Routes = [
       { path: 'tbForms/:id', component: AdminTeamBuildingFormsComponent },
       { path: '', redirectTo: 'OfferList', pathMatch: 'full' },
     ]
+    path: 'dashboard',
+    title: 'Dashboard',
+    component: DashboardComponent,
+    children: [{ path: 'OffreForms', component: AdminOffreFormsComponent }],
   },
   { path: '', redirectTo: 'acceuil', pathMatch: 'full' },
-
 ];
 
 @NgModule({
