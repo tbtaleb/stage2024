@@ -7,7 +7,7 @@ import { Produit } from '../AA_classes/produit';
 @Component({
   selector: 'app-admin-produit-forms',
   templateUrl: './admin-produit-forms.component.html',
-  styleUrls: ['./admin-produit-forms.component.css']
+  styleUrls: ['./admin-produit-forms.component.css'],
 })
 export class AdminProduitFormsComponent {
   offreForm!: FormGroup;
@@ -19,53 +19,50 @@ export class AdminProduitFormsComponent {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private pService: ProduitService,
-    private router: Router,
-  ) { }
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.initForm();
-    this.offreId = this.route.snapshot.params['id']
+    this.offreId = this.route.snapshot.params['id'];
     this.route.params.subscribe((d) => {
       if (d['id']) {
         this.isEditMode = true;
         this.loadOffre(this.offreId);
       }
-    }
-    )
+    });
   }
 
-  loadOffre(id){
-    this.pService.getProduitById(id).subscribe(
-      (data)=>{
-        if(data){
-          console.log(data);
-          
-          this.offreForm.patchValue(data)
-        }
+  loadOffre(id) {
+    this.pService.getProduitById(id).subscribe((data) => {
+      if (data) {
+        console.log(data);
+
+        this.offreForm.patchValue(data);
       }
-    )
+    });
   }
-  
-  onSubmit(){
-    const mhData=this.offreForm.value;
-    if(this.isEditMode){
-      mhData.id=this.offreId;
+
+  onSubmit() {
+    const mhData = this.offreForm.value;
+    if (this.isEditMode) {
+      mhData.id = this.offreId;
       this.updateOffre(mhData);
-    }else{
+    } else {
       this.addOffre(mhData);
     }
   }
 
-  addOffre(mh:Produit){
-    this.pService.addProduit(mh).subscribe(()=>
-      this.router.navigate(['/dashboard/OfferList'])
-    )
+  addOffre(mh: Produit) {
+    this.pService
+      .addProduit(mh)
+      .subscribe(() => this.router.navigate(['/dashboard/OfferList']));
   }
 
-  updateOffre(mh:Produit){
-    this.pService.updateProduit(mh).subscribe(()=>{
-      this.router.navigate(['/dashboard/OfferList'])
-    })
+  updateOffre(mh: Produit) {
+    this.pService.updateProduit(mh).subscribe(() => {
+      this.router.navigate(['/dashboard/OfferList']);
+    });
   }
 
   initForm() {
@@ -73,8 +70,8 @@ export class AdminProduitFormsComponent {
       id: [],
       nom: ['', Validators.required],
       description: ['', Validators.required],
-      img: ['', [Validators.required, Validators.pattern("^../assets/[a-zA-Z0-9 ^éèàù]+.(jpg|jpeg|png)")]],
-      nmbre:[ '',  Validators.required ],
+      img: [''],
+      nmbre: ['', Validators.required],
     });
   }
 }
